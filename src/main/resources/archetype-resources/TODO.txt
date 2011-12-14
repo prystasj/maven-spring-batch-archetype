@@ -1,0 +1,10 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+UUID job:
+[ ] input param == ${symbol_pound} of read/writes; uuids to process
+[ ] commons logging -> slf4j
+[ ] groovy test classes?
+[X] keep jobs module? no
+[ ] javadoc
+[ ] licenses

@@ -1,0 +1,24 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <import resource="classpath:context-cxf.xml"/>
+    <import resource="classpath:context-job-launcher.xml"/>
+
+    <import resource="classpath:jobs/job-unique-id.xml"/>
+
+    <bean name="uniqueIdJobLauncher" class="${package}.job.DefaultUniqueIdJobLauncher"
+          p:jobLauncher-ref="jobLauncher"
+          p:jobParametersBuilder-ref="uniqueIdJobParametersBuilder"
+          p:uniqueIdJob-ref="uniqueIdJob"/>
+
+    <bean name="uniqueIdJobParametersBuilder" class="${package}.job.UniqueIdJobParametersBuilder"
+          p:jobParametersBuilder-ref="jobParametersBuilder"/>
+
+    <bean name="jobParametersBuilder" class="org.springframework.batch.core.JobParametersBuilder"/>
+
+</beans>

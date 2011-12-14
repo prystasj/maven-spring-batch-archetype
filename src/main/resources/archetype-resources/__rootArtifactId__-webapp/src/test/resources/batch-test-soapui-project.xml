@@ -1,0 +1,69 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="batch-test" resourceRoot="" soapui-version="3.5" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="TestJobLauncherServiceSoapBinding" type="wsdl" bindingName="{http://batch.oclc.org/}TestJobLauncherServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/${parentArtifactId}-webapp/launch?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/${parentArtifactId}-webapp/launch?wsdl"><con:part><con:url>http://localhost:8080/${parentArtifactId}-webapp/launch?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="TestJobLauncherService" targetNamespace="http://batch.oclc.org/" xmlns:ns1="http://cxf.apache.org/bindings/xformat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://batch.oclc.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://batch.oclc.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="launchJob" type="tns:launchJob"/>
+      <xs:element name="launchJobResponse" type="tns:launchJobResponse"/>
+      <xs:complexType name="launchJob">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="launchJobResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="IllegalStateException" type="tns:IllegalStateException"/>
+      <xs:complexType name="IllegalStateException">
+        <xs:sequence/>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="launchJobResponse">
+    <wsdl:part element="tns:launchJobResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="IllegalStateException">
+    <wsdl:part element="tns:IllegalStateException" name="IllegalStateException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="launchJob">
+    <wsdl:part element="tns:launchJob" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="JobLauncher">
+    <wsdl:operation name="launchJob">
+      <wsdl:input message="tns:launchJob" name="launchJob"></wsdl:input>
+      <wsdl:output message="tns:launchJobResponse" name="launchJobResponse"></wsdl:output>
+      <wsdl:fault message="tns:IllegalStateException" name="IllegalStateException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TestJobLauncherServiceSoapBinding" type="tns:JobLauncher">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="launchJob">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="launchJob">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="launchJobResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="IllegalStateException">
+        <soap:fault name="IllegalStateException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TestJobLauncherService">
+    <wsdl:port binding="tns:TestJobLauncherServiceSoapBinding" name="TestJobLauncherPort">
+      <soap:address location="http://localhost:8080/${parentArtifactId}-webapp/launch"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/${parentArtifactId}-webapp/launch</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="launchJob" bindingOperationName="launchJob" type="Request-Response" outputName="launchJobResponse" inputName="launchJob" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/${parentArtifactId}-webapp/launch</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bat="http://batch.oclc.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <bat:launchJob>
+         <arg0>test</arg0>
+      </bat:launchJob>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://batch.oclc.org/JobLauncher/launchJob"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>
