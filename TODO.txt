@@ -1,3 +1,37 @@
-
 [ ] decide on a database provider: h2, mysql, etc.
 [ ] instructions for creating the database
+[ ] document project structure
+
+-----------------------
+The items below are addressed in slop r
+
+[ ] remove common-context.xml
+[ ] comments in config files
+[-] remove unused objects, jobOperator, jobExplorer, etc.
+[-] delete simple-job-launcher-context.xml
+[-] delete data-source-context.xml
+
+[ ] make console servlet available; requires JobService and other objects
+
+<servlet>
+  <servlet-name>Batch Servlet</servlet-name>
+  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  <init-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath*:/org/springframework/batch/admin/web/resources/servlet-config.xml</param-value>
+  </init-param>
+  <load-on-startup>1</load-on-startup>
+</servlet>
+<servlet>
+  <servlet-name>Resources Servlet</servlet-name>
+  <servlet-class>org.springframework.js.resource.ResourceServlet</servlet-class>
+  <load-on-startup>0</load-on-startup>
+</servlet>
+<servlet-mapping>
+  <servlet-name>Resources Servlet</servlet-name>
+  <url-pattern>/resources/*</url-pattern>
+</servlet-mapping>
+
+[ ] java.lang.ClassNotFoundException: org.springframework.js.resource.ResourceServlet
+[ ] webapp context imports context-imports-spring.xml
+[ ] batch.job.configuration.file.dir
