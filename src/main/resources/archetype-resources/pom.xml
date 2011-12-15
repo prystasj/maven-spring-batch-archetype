@@ -11,6 +11,7 @@
         <javaVersion>1.6</javaVersion>
         <mavenVersion>2.2.1</mavenVersion>        
         <springBatchVersion>2.1.8.RELEASE</springBatchVersion>
+        <springBatchAdminVersion>1.2.1.RELEASE</springBatchAdminVersion>
         <springVersion>3.0.5.RELEASE</springVersion>
         <cxfVersion>2.2.9</cxfVersion>
         <junitVersion>4.8.1</junitVersion>
@@ -190,6 +191,16 @@
                 <groupId>org.springframework.batch</groupId>
                 <artifactId>spring-batch-infrastructure</artifactId>
                 <version>${springBatchVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.batch</groupId>
+                <artifactId>spring-batch-admin-manager</artifactId>
+                <version>${springBatchAdminVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.batch</groupId>
+                <artifactId>spring-batch-admin-resources</artifactId>
+                <version>${springBatchAdminVersion}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
