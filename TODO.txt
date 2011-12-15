@@ -3,7 +3,7 @@
 [ ] document project structure
 
 -----------------------
-The items below are addressed in slop r
+The items below are addressed in slop r5:6
 
 [ ] remove common-context.xml
 [ ] comments in config files
