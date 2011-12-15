@@ -8,3 +8,4 @@ UUID job:
 [X] keep jobs module? no
 [ ] javadoc
 [ ] licenses
+[ ] verify running admin console
