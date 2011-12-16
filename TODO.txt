@@ -35,3 +35,21 @@ The items below are addressed in slop r5:6
 [ ] java.lang.ClassNotFoundException: org.springframework.js.resource.ResourceServlet
 [ ] webapp context imports context-imports-spring.xml
 [ ] batch.job.configuration.file.dir
+
+
+ 89                 <plugin>
+ 90                     <groupId>com.mycila.maven-license-plugin</groupId>
+ 91                     <artifactId>maven-license-plugin</artifactId>
+ 92                     <version>1.9.0</version>
+ 93                     <configuration>
+ 94                         <header>etc/license.txt</header>
+ 95                     </configuration>
+ 96                     <executions>
+ 97                         <execution>
+ 98                             <goals>
+ 99                                 <goal>check</goal>
+ 100                             </goals>
+ 101                         </execution>
+ 102                     </executions>
+ 103                 </plugin>
+
